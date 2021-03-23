@@ -17,6 +17,7 @@ public class Main  {
         graph.generateGraph(new String[]{"AB5", "AD5", "AE7", "BC4", "CD8", "CE2", "DC8", "DE6", "EB3"});
 
         IRouter router = new RouterImpl();
+        System.out.println("--------distance---------");
         router.calculateDistanceBetweenTowns("A-B-C");
 
 

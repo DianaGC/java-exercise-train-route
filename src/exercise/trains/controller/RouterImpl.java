@@ -11,6 +11,10 @@ import exercise.trains.service.Read;
 public class RouterImpl implements IRouter {
     private Graph graph;
 
+    public RouterImpl(){
+        this.graph = new Graph();
+    }
+
     public String calculateDistanceBetweenTowns(String towns) throws IllegalArgumentException, InvalidExceptions {
         String[] townsList = Read.validateRoute(towns);
         int distance = 0;

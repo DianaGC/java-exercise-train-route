@@ -13,13 +13,13 @@ public class Graph {
 
     public void generateGraph(String[] routes) throws InvalidExceptions{
         for(String route: routes){
+            graph = new HashMap<String, Map<String, Integer>>();
 
             Town townStart = new Town(Character.toString(route.charAt(0)));
             Town townEnd = new Town(Character.toString(route.charAt(1)));
 
             HashMap<String, Integer> destination = new HashMap();
             destination.put(townEnd.getTownName(), Character.getNumericValue(route.charAt(2)));
-            System.out.println(townStart.getTownName()+ destination);
             graph.put(townStart.getTownName(), destination);
         }
     }
