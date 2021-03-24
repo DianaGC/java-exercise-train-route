@@ -1,6 +1,7 @@
 package exercise.trains.classes;
 
 import exercise.trains.exception.InvalidExceptions;
+import sun.security.krb5.internal.crypto.Des;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,6 @@ public class Graph {
 
     public void generateGraph(String[] routes) throws InvalidExceptions{
         for(String route: routes){
-            graph = new HashMap<String, Map<String, Integer>>();
 
             Town townStart = new Town(Character.toString(route.charAt(0)));
             Town townEnd = new Town(Character.toString(route.charAt(1)));
@@ -21,6 +21,7 @@ public class Graph {
             HashMap<String, Integer> destination = new HashMap();
             destination.put(townEnd.getTownName(), Character.getNumericValue(route.charAt(2)));
             graph.put(townStart.getTownName(), destination);
+            System.out.println(graph.get(townStart.getTownName()));
         }
     }
 

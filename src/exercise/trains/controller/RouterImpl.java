@@ -15,6 +15,10 @@ public class RouterImpl implements IRouter {
         this.graph = new Graph();
     }
 
+    public void generateGraph(String[] routs) throws IllegalArgumentException, InvalidExceptions {
+        graph.generateGraph(routs);
+    }
+
     public String calculateDistanceBetweenTowns(String towns) throws IllegalArgumentException, InvalidExceptions {
         String[] townsList = Read.validateRoute(towns);
         int distance = 0;
