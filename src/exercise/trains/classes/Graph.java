@@ -10,18 +10,26 @@ import java.util.Map;
 public class Graph {
     private Map<String, Map<String, Integer>> graph;
     private Map<String, List<Destination>> graphDestination;
+
     public Graph() {}
 
     public void generateGraph(String[] routes) throws InvalidExceptions{
+        graph = new HashMap<String, Map<String, Integer> >();
+
         for(String route: routes){
 
             Town townStart = new Town(Character.toString(route.charAt(0)));
             Town townEnd = new Town(Character.toString(route.charAt(1)));
 
-            HashMap<String, Integer> destination = new HashMap();
-            destination.put(townEnd.getTownName(), Character.getNumericValue(route.charAt(2)));
-            graph.put(townStart.getTownName(), destination);
-            System.out.println(graph.get(townStart.getTownName()));
+            if(graph.containsKey(townStart.getTownName())){
+                if(!graph.get(townStart.getTownName()).containsKey(townEnd.getTownName())){
+                    graph.get(townStart.getTownName()).put(townEnd.getTownName(),Character.getNumericValue(route.charAt(2)));
+                }
+            } else{
+                HashMap<String, Integer> destination = new HashMap();
+                destination.put(townEnd.getTownName(), Character.getNumericValue(route.charAt(2)));
+                graph.put(townStart.getTownName(), destination);
+            }
         }
     }
 
